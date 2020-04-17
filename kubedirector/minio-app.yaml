@@ -1,0 +1,38 @@
+apiVersion: kubedirector.hpe.com/v1beta1
+kind: KubeDirectorApp
+metadata:
+  name: minio
+spec:
+  label:
+    name: MinIO
+    description: MinIO is High Performance Object Storage compatible with Amazon S3 cloud storage service.
+  distroID: dzinsou/minio
+  version: 'latest'
+  configSchemaVersion: 7
+  services:
+  - id: ssh
+    label:
+      name: SSH
+    endpoint:
+      port: 22
+      isDashboard: false
+  - id: minio
+    label:
+      name: MinIO
+    endpoint:
+      port: 9000
+      urlScheme: http
+      isDashboard: true
+  roles:
+  - id: minio
+    cardinality: "1"
+    imageRepoTag: docker.io/minio/minio:latest
+  config:
+    selectedRoles:
+    - minio
+    roleServices:
+    - roleID: minio
+      serviceIDs:
+      - ssh
+      - minio
+  systemdRequired: false
