@@ -26,7 +26,7 @@ spec:
   roles:
   - id: minio
     cardinality: "1"
-    imageRepoTag: docker.io/minio/minio:latest
+    imageRepoTag: docker.io/dzinsouhpe/minio:latest
   config:
     selectedRoles:
     - minio
