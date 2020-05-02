@@ -6,7 +6,7 @@ spec:
   label:
     name: MinIO
     description: MinIO is High Performance Object Storage compatible with Amazon S3 cloud storage service.
-  distroID: dzinsou/minio
+  distroID: dzinsouhpe/minio
   version: 'latest'
   configSchemaVersion: 7
   services:
